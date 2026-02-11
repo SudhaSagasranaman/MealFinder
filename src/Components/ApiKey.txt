@@ -1,0 +1,8 @@
+API:https://dummyapi.io/data/v1/user?page=0&limit=10
+BaseURL :https://dummyapi.io/data/v1/user
+{
+  method: "GET",
+  headers: {
+    "app-id": "633e33e98efd49504c9c7643"
+  }
+}
