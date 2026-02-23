@@ -1,65 +1,71 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
+
+  const [showMenu, setShowMenu] = useState(false)
+  const [categories, setCategories] = useState([])
+
+  useEffect(() => {
+    fetchCategories()
+  }, [])
+
+  const fetchCategories = async () => {
+
+    const { data } = await axios(
+      "https://www.themealdb.com/api/json/v1/1/categories.php"
+    )
+
+    setCategories(data.categories)
+
+  }
 
   return (
 
     <div>
 
-      {/* Top Orange Navbar */}
-      <div style={{
-        backgroundColor: "#ff6b00",
-        padding: "10px 0"
-      }}>
+      {/* Navbar */}
+      <div className="top-navbar">
 
-        <div className="container d-flex justify-content-between">
+        <div className="container d-flex justify-content-between align-items-center">
 
-          <h5 style={{color:"white"}}>
-            <Link to="/" style={{
-              textDecoration:"none",
-              color:"white"
-            }}>
+          <h5 className="mb-0">
+            <Link to="/" className="logo-text">
               MEAL FINDER
             </Link>
           </h5>
 
-          <div style={{color:"white"}}>☰</div>
+          <i
+            className="bi bi-list hamburger-icon"
+            onClick={() => setShowMenu(true)}
+          ></i>
 
         </div>
 
       </div>
 
-      {/* Banner Section */}
-      <div
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1504674900247-0877df9cc836')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          padding: "80px 0",
-          textAlign: "center",
-          color: "white"
-        }}
-      >
+      {/* Side Menu */}
+      <div className={showMenu ? "side-menu active" : "side-menu"}>
 
-        <h3>What are your favorite cuisines?</h3>
+        <div className="text-end">
 
-        <p>PERSONALIZE YOUR EXPERIENCE</p>
-
-        <div className="d-flex justify-content-center mt-3">
-
-          <input
-            type="text"
-            placeholder="Search recipes here..."
-            className="form-control w-50"
-          />
-
-          <button className="btn btn-warning ms-2">
-            🔍
-          </button>
+<i
+  className="bi bi-x-circle close-icon"
+  onClick={() => setShowMenu(false)}
+></i>          
 
         </div>
+
+
+        {
+          categories.map((cat) => (
+            <div className="menu-item">
+              {cat.strCategory} <hr/>
+            </div>
+
+          ))
+        }
 
       </div>
 

@@ -5,3 +5,58 @@
 a{
   text-decoration: none !important;
 }
+/* ===== Top Navbar ===== */
+.top-navbar {
+  background-color: #ff6b00;
+  padding: 10px 0;
+}
+
+.logo-text {
+  color: white;
+  text-decoration: none;
+}
+
+.hamburger-icon {
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ===== Side Menu ===== */
+.side-menu {
+  position: absolute;   /* change from fixed */
+  top: 0;            /* below navbar */
+  right: -260px;
+  width: 200px;
+  background-color: white;
+  box-shadow: -3px 0 5px rgba(0,0,0,0.3);
+  transition: 0.3s;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.side-menu.active {
+  right: 0;
+}
+
+.close-icon {
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: bolder;
+  color:red;
+}
+
+.menu-item {
+  cursor: pointer;
+  font-size: 10px;
+  padding :2px  0 !important;
+  margin:0 !important;
+}
+
+.menu-item:hover {
+  color: #ff6b00;
+}
+hr {
+  margin: 4px 0 !important;   /* small space */
+  padding: 0 !important;
+}
