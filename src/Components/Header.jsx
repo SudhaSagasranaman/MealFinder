@@ -32,6 +32,8 @@ const Header = () => {
 
           <h5 className="mb-0">
             <Link to="/" className="logo-text">
+              <i className="bi bi-egg-fried me-2"></i>
+
               MEAL FINDER
             </Link>
           </h5>
@@ -50,10 +52,10 @@ const Header = () => {
 
         <div className="text-end">
 
-<i
-  className="bi bi-x-circle close-icon"
-  onClick={() => setShowMenu(false)}
-></i>          
+          <i
+            className="bi bi-x-circle close-icon"
+            onClick={() => setShowMenu(false)}
+          ></i>
 
         </div>
 
@@ -61,7 +63,7 @@ const Header = () => {
         {
           categories.map((cat) => (
             <div className="menu-item">
-              {cat.strCategory} <hr/>
+              {cat.strCategory} <hr />
             </div>
 
           ))

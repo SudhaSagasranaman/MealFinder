@@ -5,7 +5,7 @@
 a{
   text-decoration: none !important;
 }
-/* ===== Top Navbar ===== */
+/*  Top Navbar */
 .top-navbar {
   background-color: #ff6b00;
   padding: 10px 0;
@@ -22,9 +22,9 @@ a{
   cursor: pointer;
 }
 
-/* ===== Side Menu ===== */
+/* Side Menu */
 .side-menu {
-  position: absolute;   /* change from fixed */
+  position: absolute;   
   top: 0;            /* below navbar */
   right: -260px;
   width: 200px;
@@ -57,6 +57,6 @@ a{
   color: #ff6b00;
 }
 hr {
-  margin: 4px 0 !important;   /* small space */
+  margin: 4px 0 !important;   
   padding: 0 !important;
 }
