@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "./Meals.css";
 
 const Meals = () => {
 
   const { categoryName } = useParams();
+  const navigate = useNavigate();
 
   const [meals, setMeals] = useState([]);
   const [categoryInfo, setCategoryInfo] = useState(null);
@@ -15,7 +16,6 @@ const Meals = () => {
     fetchCategoryInfo();
   }, [categoryName]);
 
-  // fetching Meals
   const fetchMeals = async () => {
     const { data } = await axios(
       `https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryName}`
@@ -23,7 +23,6 @@ const Meals = () => {
     setMeals(data.meals);
   };
 
-  // fetching  Category Description
   const fetchCategoryInfo = async () => {
     const { data } = await axios(
       "https://www.themealdb.com/api/json/v1/1/categories.php"
@@ -41,19 +40,16 @@ const Meals = () => {
 
       <div className="container">
 
-        {/* category titles */}
         <h4 className="category-heading">
           {categoryName}
         </h4>
 
-        {/* category description */}
         {categoryInfo && (
           <div className="category-description">
             <p>{categoryInfo.strCategoryDescription}</p>
           </div>
         )}
 
-        {/* meals bootstrap grid */}
         <div className="row">
 
           {meals?.map((meal) => (
@@ -61,7 +57,11 @@ const Meals = () => {
               key={meal.idMeal}
               className="col-lg-3 col-md-4 col-sm-6"
             >
-              <div className="meal-card">
+              <div
+                className="meal-card"
+                onClick={() => navigate(`/meal/${meal.idMeal}`)}
+                style={{ cursor: "pointer" }}
+              >
                 <img
                   src={meal.strMealThumb}
                   alt={meal.strMeal}
