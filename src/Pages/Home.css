@@ -40,7 +40,7 @@
   letter-spacing: 2px;
 }
 
-/* Search */
+/* search */
 #home .search-box {
   margin-top: 15px;
   display: flex;
@@ -62,7 +62,7 @@
   cursor: pointer;
 }
 
-/*  CATEGORIES */
+/*  categories */
 
 #home .categories-section {
   padding: 40px 0;
@@ -73,7 +73,7 @@
   margin-bottom: 20px;
 }
 
-/* Card */
+/* card */
 #home .category-card {
   position: relative;
   background: #fff;

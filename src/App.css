@@ -5,7 +5,7 @@
 a{
   text-decoration: none !important;
 }
-/*  Top Navbar */
+/*  top navbar */
 .top-navbar {
   background-color: #ff6b00;
   padding: 10px 0;
@@ -22,10 +22,10 @@ a{
   cursor: pointer;
 }
 
-/* Side Menu */
+/* side menu */
 .side-menu {
   position: absolute;   
-  top: 0;            /* below navbar */
+  top: 0;            
   right: -260px;
   width: 200px;
   background-color: white;
