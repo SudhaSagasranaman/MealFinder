@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Header = () => {
 
   const [showMenu, setShowMenu] = useState(false)
   const [categories, setCategories] = useState([])
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetchCategories()
@@ -25,7 +27,7 @@ const Header = () => {
 
     <div>
 
-      {/* Navbar */}
+      {/* navbar */}
       <div className="top-navbar">
 
         <div className="container d-flex justify-content-between align-items-center">
@@ -33,7 +35,6 @@ const Header = () => {
           <h5 className="mb-0">
             <Link to="/" className="logo-text">
               <i className="bi bi-egg-fried me-2"></i>
-
               MEAL FINDER
             </Link>
           </h5>
@@ -47,25 +48,38 @@ const Header = () => {
 
       </div>
 
-      {/* Side Menu */}
+      {/* menu overlay */}
+      {showMenu && (
+        <div
+          className="menu-overlay"
+          onClick={() => setShowMenu(false)}
+        ></div>
+      )}
+
+      {/* side menu */}
       <div className={showMenu ? "side-menu active" : "side-menu"}>
 
         <div className="text-end">
-
           <i
-            className="bi bi-x-circle close-icon"
+            className="bi bi-x-circle-fill close-icon"
             onClick={() => setShowMenu(false)}
           ></i>
-
         </div>
 
+        <h6 className="menu-title">CATEGORIES</h6>
 
         {
           categories.map((cat) => (
-            <div className="menu-item">
-              {cat.strCategory} <hr />
+            <div
+              key={cat.idCategory}
+              className="menu-item"
+              onClick={() => {
+navigate(`/meals/${cat.strCategory}`)       
+         setShowMenu(false)
+              }}
+            >
+              {cat.strCategory}
             </div>
-
           ))
         }
 

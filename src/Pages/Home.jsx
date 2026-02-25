@@ -1,33 +1,42 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
 
 const Home = () => {
+
   const [categories, setCategories] = useState([]);
   const [foodName, setFoodName] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchCategories();
   }, []);
 
   const fetchCategories = async () => {
-    const { data } = await axios(
-      "https://www.themealdb.com/api/json/v1/1/categories.php"
-    );
-    setCategories(data.categories);
+    try {
+      const { data } = await axios(
+        "https://www.themealdb.com/api/json/v1/1/categories.php"
+      );
+      setCategories(data.categories);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleSearch = () => {
-    console.log(foodName);
-    // later you can navigate to search page
+    if (foodName.trim() !== "") {
+      navigate(`/search/${foodName}`);
+    }
   };
 
   return (
     <div id="home">
 
-      {/* hero section main page */}
+      {/* main section */}
       <div className="hero-section">
         <div className="hero-content">
+
           <h2>What are your favorite cuisines?</h2>
           <p>PERSONALIZE YOUR EXPERIENCE</p>
 
@@ -38,24 +47,35 @@ const Home = () => {
               value={foodName}
               onChange={(e) => setFoodName(e.target.value)}
             />
-            <button onClick={handleSearch}>🔍</button>
+            <button onClick={handleSearch}>
+              <i className="bi bi-search"></i>
+            </button>
           </div>
+
         </div>
       </div>
 
-      {/* categories sec */}
+      {/* categories section*/}
       <div className="container categories-section">
-        <h5 className="section-title">CATEGORIES</h5>
+
+        <h5 className="section-title">
+          CATEGORIES
+        </h5>
 
         <div className="row">
+
           {categories.map((cat) => (
+
             <div
               className="col-lg-3 col-md-4 col-sm-6"
               key={cat.idCategory}
             >
-              <div className="category-card">
+              <div
+                className="category-card"
+                onClick={() => navigate(`/meals/${cat.strCategory}`)}
+              >
 
-                {/* red badge top corner */}
+                {/*  red badge */}
                 <span className="badge-text">
                   {cat.strCategory}
                 </span>
@@ -68,9 +88,13 @@ const Home = () => {
 
               </div>
             </div>
+
           ))}
+
         </div>
+
       </div>
+
     </div>
   );
 };

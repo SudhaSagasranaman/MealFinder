@@ -1,0 +1,101 @@
+
+#meals {
+  padding: 40px 0;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+
+/* category heading */
+
+#meals .category-heading {
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
+/* category description box */
+#meals .category-description {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+#meals .category-description p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+  margin: 0;
+}
+
+
+c#meals .row {
+  margin-top: 10px;
+}
+
+
+/* 
+   meal card
+ */
+
+#meals .meal-card {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+/* hover */
+#meals .meal-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+
+/* 
+   meal image
+ */
+
+#meals .meal-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+
+/* 
+   meal title
+ */
+
+#meals .meal-card h6 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+
+
+/* 
+   reponsive adjustments
+ */
+
+@media (max-width: 768px) {
+
+  #meals .category-description {
+    padding: 15px;
+  }
+
+  #meals .meal-card h6 {
+    font-size: 13px;
+  }
+
+}

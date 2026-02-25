@@ -1,19 +1,12 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Home from '../Pages/Home'
-
-const Routing = () => {
-
+import { Routes, Route } from "react-router-dom";
+import Home from "../Pages/Home";
+import Meals from "../Pages/Meals";
+const Routings = () => {
   return (
-
     <Routes>
+      <Route path="/" element={<Home />} />
+<Route path="/meals/:categoryName" element={<Meals />} />    </Routes>
+  );
+};
 
-      <Route path="/" element={<Home/>}/>
-
-    </Routes>
-
-  )
-
-}
-
-export default Routing
+export default Routings;
