@@ -84,18 +84,3 @@ c#meals .row {
 }
 
 
-/* 
-   reponsive adjustments
- */
-
-@media (max-width: 768px) {
-
-  #meals .category-description {
-    padding: 15px;
-  }
-
-  #meals .meal-card h6 {
-    font-size: 13px;
-  }
-
-}
