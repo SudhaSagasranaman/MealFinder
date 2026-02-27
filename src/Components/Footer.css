@@ -1,0 +1,31 @@
+.footer-section {
+  background-color: #f8f8f8;
+  padding: 40px 0;
+}
+
+.section-title {
+  font-weight: 700;
+}
+
+.category-card {
+  cursor: pointer;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  transition: 0.3s;
+}
+
+.category-card:hover {
+  transform: scale(1.03);
+}
+
+.badge-text {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: red;
+  color: white;
+  padding: 3px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+}
