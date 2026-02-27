@@ -1,39 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
 
 const Home = () => {
 
-  const [categories, setCategories] = useState([]);
   const [foodName, setFoodName] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchCategories();
-  }, []);
+  const handleSearch = async () => {
 
-  const fetchCategories = async () => {
+    if (foodName.trim() === "") return;
+
     try {
       const { data } = await axios(
-        "https://www.themealdb.com/api/json/v1/1/categories.php"
+        `https://www.themealdb.com/api/json/v1/1/search.php?s=${foodName}`
       );
-      setCategories(data.categories);
+
+      if (data.meals) {
+        setSearchResults(data.meals);
+      } else {
+        setSearchResults([]);
+      }
+
     } catch (error) {
       console.log(error);
-    }
-  };
-
-  const handleSearch = () => {
-    if (foodName.trim() !== "") {
-      navigate(`/search/${foodName}`);
     }
   };
 
   return (
     <div id="home">
 
-      {/* main section */}
+      {/* hero sec */}
       <div className="hero-section">
         <div className="hero-content">
 
@@ -55,45 +54,45 @@ const Home = () => {
         </div>
       </div>
 
-      {/* categories section*/}
-      <div className="container categories-section">
+      {/* search results */}
+      {searchResults.length > 0 && (
+        <div className="container mt-5">
 
-        <h5 className="section-title">
-          CATEGORIES
-        </h5>
+          <h5 className="section-title text-center mb-4">
+            SEARCH RESULTS
+          </h5>
 
-        <div className="row">
+          <div className="row">
 
-          {categories.map((cat) => (
+            {searchResults.map((meal) => (
 
-            <div
-              className="col-lg-3 col-md-4 col-sm-6"
-              key={cat.idCategory}
-            >
               <div
-                className="category-card"
-                onClick={() => navigate(`/meals/${cat.strCategory}`)}
+                className="col-lg-3 col-md-4 col-sm-6 mb-4"
+                key={meal.idMeal}
               >
+                <div
+                  className="search-card"
+                  onClick={() => navigate(`/meal/${meal.idMeal}`)}
+                >
+                  <img
+                    src={meal.strMealThumb}
+                    alt={meal.strMeal}
+                    className="img-fluid"
+                  />
 
-                {/*  red badge */}
-                <span className="badge-text">
-                  {cat.strCategory}
-                </span>
+                  <h6 className="mt-2 text-center">
+                    {meal.strMeal}
+                  </h6>
 
-                <img
-                  src={cat.strCategoryThumb}
-                  alt={cat.strCategory}
-                  className="img-fluid"
-                />
-
+                </div>
               </div>
-            </div>
 
-          ))}
+            ))}
+
+          </div>
 
         </div>
-
-      </div>
+      )}
 
     </div>
   );

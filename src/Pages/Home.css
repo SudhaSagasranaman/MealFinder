@@ -1,8 +1,10 @@
-/*  Home  page color*/
+/* ================= HOME PAGE ================= */
+
 #home {
   background-color: #f5f5f5;
 }
 
+/* ================= HERO SECTION ================= */
 
 #home .hero-section {
   background: url("https://images.unsplash.com/photo-1504674900247-0877df9cc836")
@@ -40,7 +42,8 @@
   letter-spacing: 2px;
 }
 
-/* search */
+/* ================= SEARCH ================= */
+
 #home .search-box {
   margin-top: 15px;
   display: flex;
@@ -52,50 +55,47 @@
   border-radius: 20px 0 0 20px;
   border: none;
   width: 250px;
+  outline: none;
 }
 
 #home .search-box button {
   padding: 8px 15px;
   border: none;
-  background: orange;
+  background: #ff6b00;
+  color: white;
   border-radius: 0 20px 20px 0;
   cursor: pointer;
 }
 
-/*  categories */
-
-#home .categories-section {
-  padding: 40px 0;
+#home .search-box button:hover {
+  background: #e65c00;
 }
+
+/* ================= SEARCH RESULTS ================= */
 
 #home .section-title {
   letter-spacing: 2px;
-  margin-bottom: 20px;
+  font-weight: 600;
 }
 
-/* card */
-#home .category-card {
-  position: relative;
+#home .search-card {
   background: #fff;
-  padding: 10px;
   border-radius: 10px;
-  margin-bottom: 20px;
+  padding: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
+  cursor: pointer;
 }
 
-#home .category-card:hover {
+#home .search-card:hover {
   transform: translateY(-5px);
 }
 
-/* red badge */
-#home .badge-text {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  background: red;
-  color: white;
-  font-size: 12px;
-  padding: 3px 8px;
-  border-radius: 5px;
+#home .search-card img {
+  border-radius: 8px;
+}
+
+#home .search-card h6 {
+  font-size: 14px;
+  font-weight: 600;
 }
