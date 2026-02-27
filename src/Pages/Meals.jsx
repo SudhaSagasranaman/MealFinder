@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import "./Meals.css";
+import Home from './Home'
+
 
 const Meals = () => {
 
@@ -38,8 +40,8 @@ const Meals = () => {
   return (
     <div id="meals">
 
-      <div className="container">
-
+          <div className="container">
+         < Home/>
         <h4 className="category-heading">
           {categoryName}
         </h4>
