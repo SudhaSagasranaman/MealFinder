@@ -1,0 +1,31 @@
+/* Title underline */
+.title-line {
+  width: 60px;
+  height: 3px;
+  background-color: #ff6b00;
+}
+
+/* Orange ingredients box */
+.ingredients-box {
+  background-color: #ff6b00;
+  padding: 25px;
+  border-radius: 6px;
+}
+
+/* Circle number */
+.circle-number {
+  width: 22px;
+  height: 22px;
+  background-color: #00bcd4;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Measure box */
+.measure-box {
+  background-color: #f1f1f1;
+}

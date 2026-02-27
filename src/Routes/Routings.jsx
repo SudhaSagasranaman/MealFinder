@@ -9,7 +9,6 @@ const Routings = () => {
 
       <Route path="/" element={<Home />} />
 
-      <Route path="/meals/:categoryName" element={<Meals />} />
 
       <Route path="/meal/:id" element={<MealDetails />} />
 
