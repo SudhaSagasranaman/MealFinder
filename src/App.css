@@ -57,3 +57,7 @@ a{
 .menu-item:hover {
   color: #ff6b00;
 }
+hr {
+  margin: 4px 0 !important;   
+  padding: 0 !important;
+}
