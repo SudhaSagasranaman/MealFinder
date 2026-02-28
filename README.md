@@ -1,16 +1,53 @@
-# React + Vite
+# 🍽️ Meal Finder App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React application that allows users to explore meals by category, search recipes by name, and view complete meal details including ingredients and instructions.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##  Live Demo
 
-## React Compiler
+https://meal-finder-git-main-sudhasagasranamans-projects.vercel.app/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+##  Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+-  Search meals by name
+-  Browse meals by category
+-  View detailed meal information
+-  Ingredients with measures
+-  Tags and source links
+-  Fully responsive design
+-  Modern UI using Bootstrap
+
+---
+
+## Technologies Used
+
+- React.js
+- Vite
+- React Router DOM
+- Axios
+- Bootstrap
+- TheMealDB API
+
+---
+
+##  API Used
+
+The app uses **TheMealDB API**
+
+- Categories:  
+  https://www.themealdb.com/api/json/v1/1/categories.php
+
+- Search Meal by Name:  
+  https://www.themealdb.com/api/json/v1/1/search.php?s=mealName
+
+- Filter by Category:  
+  https://www.themealdb.com/api/json/v1/1/filter.php?c=Category
+
+- Meal Details by ID:  
+  https://www.themealdb.com/api/json/v1/1/lookup.php?i=ID
+
+
+
+## 📂 Project Structure
