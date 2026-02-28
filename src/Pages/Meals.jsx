@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import "./Meals.css";
-import Home from './Home'
+import Home from '../Components/Home'
 
 
 const Meals = () => {
-
+                                        
   const { categoryName } = useParams();
   const navigate = useNavigate();
 
